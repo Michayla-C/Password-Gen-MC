@@ -1,24 +1,40 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+const characterAmountRange = document.getElementById("characterAmountRange")
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+const characterAmountNumber = document.getElementById("characterAmountNumber")
 
-  passwordText.value = password;
+const upercaseElement = document.getElementById("upercase")
+const numbersElement = document.getElementById("numbers")
+const symbolsElement = document.getElementById("symbols")
 
+const form = document.getElementById("passwordGenerator")
+
+characterAmountNumber.addEventListener("input", syncCharacterAmount);
+characterAmountRange.addEventListener("input", syncCharacterAmount);
+
+form.addEventListener("submit", e => {
+  e.preventDefault()
+  const characterAmount = characterAmountNumber.value
+  const upercase = upercaseElement.checked
+  const numbers = numbersElement.checked
+  const symbols = symbolsElement.checked
+
+  const password = generatePassword(characterAmount, upercase, numbers, symbols)
+})
+
+function generatePassword(characterAmount, upercase, numbers, symbols) {
+  String.fromCharCode(65)
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// My code
-var howLong = window.prompt ("choose a password length between 8 and 128")
-if ( parseInt (howLong) >= 8 && parseInt(howLong) <= 128) {
-  OneValue = howLong
+function arrayFromLowToHigh(low,high) {
+  const array = []
+  for (let i = low; i <= high; i++) {
+    array.push(i)
+  }
+  return array
 }
-else {
-  window.alert ("You did not imput a valid number. Press 'OK' and start again!")
-  run()
+
+function syncCharacterAmount(e) {
+  const value = e.target.value
+  characterAmountNumber.value = value
+  characterAmountRange.value = value
 }
