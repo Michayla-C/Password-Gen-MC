@@ -14,34 +14,21 @@
 
       <div class="card">
         <div class="cardHeader">
-          <h2 class="title">Generate Password</h2>
+          <h2 class="title">Generate New Random Password</h2>
         </div>
 
           <h4 class="passwordDisplay" id="passwordDisplay">password</h4>
 
-          <form id="passwordGenerator" class="form">
-
-            <label for="characterAmountNumber">Character Amount</label>
-            <div class="characterAmount">
-              <input type="range" min ="8" max="128" value="10" id="characterAmountRange"></input>
-              <input class="number" type="number" min ="8" max="128" value="10" id="characterAmountNumber"></input>
-            </div>
-            
-              <label for="upercase">Uppercase</label>
-              <input type="checkbox" id="upercase"></input>
-  
-              <label for="numbers">Numbers</label>
-              <input type="checkbox" id="numbers"></input>
-  
-              <label for="symbols">Symbols</label>
-              <input type="checkbox" id="symbols"></input>
-
               <button id="generate" class="btn" type="submit">Generate Password</button>
 
-          </form>
+              <button id="copy" class="button" onclick="copied()"> Copy</button>
 
       </div>
 
+      <!--OWASP Special Characters Cheat Code Page-->
+      <script src="https://owasp.org/www-community/password-special-characters"></script>
+      
+      <!--JS file link-->
     <script src="script.js"></script>
 
   </body>

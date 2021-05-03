@@ -35,6 +35,7 @@ body {
   grid-template-columns: auto auto;
   row-gap: 1rem;
   column-gap: 3rem;
+  text-align: center;
   justify-content: center;
   align-items: center;
 }
@@ -68,19 +69,37 @@ label {
 
 
 .btn {
-  grid-column: span 2;
   border: 2px;
   border-color: royalblue;
   background-color: transparent;
   border-radius: 1rem;
   color: hsl(0, 0%, 100%);
-  padding: .5rem 1rem;
+  padding: .5rem 5rem;
   font-weight: bold;
   cursor: pointer;
 }
 
 .btn:hover {
   background-color: #ffffff33;
+}
+
+.button {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 15px;
+  background-color: transparent;
+  border-radius: 50px;
+  display: inline-block;
+  justify-content: center;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+#copy {
+  float: right;
 }
 
 /* Start Media Query */
@@ -132,13 +151,7 @@ label {
       #generate {
           margin-left: 22%;
           
-      }
-      /* Styles for copy button */
-      #copy {
-          margin-left: 22%;
-          
-      }
-  
+      }  
   }
 
 @media (max-width: 690px) {

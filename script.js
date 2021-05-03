@@ -1,84 +1,76 @@
-const characterAmountRange = document.getElementById("characterAmountRange")
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var special = '!@#$^&%*()+=-[]{}|:<>?,.';
+var numbers = '1234567890';
 
-const characterAmountNumber = document.getElementById("characterAmountNumber")
+var pwd = '';
 
-const upercaseElement = document.getElementById("upercase")
-const numbersElement = document.getElementById("numbers")
-const symbolsElement = document.getElementById("symbols")
+var lowerSelection = false;
+var upperSelection = false;
+var specialSelection = false;
+var numberSelection = false;
 
-const form = document.getElementById("passwordGenerator")
+//Generate random password
 
-const passwordDisplay = document.getElementById("passwordDisplay")
+function generate() {
+    var confirmLength = '';
 
-const resultDOM = document.getElementById('result');
-const copybtnDOM = document.getElementById('copy');
-const lengthDOM = document.getElementById('length');
-const uppercaseDOM = document.getElementById('uppercase');
-const numbersDOM = document.getElementById('numbers');
-const symbolsDOM = document.getElementById('symbols');
-const generatebtn = document.getElementById('generate');
-
-characterAmountNumber.addEventListener("input", syncCharacterAmount);
-characterAmountRange.addEventListener("input", syncCharacterAmount);
-
-form.addEventListener("submit", e => {
-  e.preventDefault()
-  const characterAmount = characterAmountNumber.value
-  const upercase = upercaseElement.checked
-  const numbers = numbersElement.checked
-  const symbols = symbolsElement.checked
-
-  let generatePassword = (
-    characterAmount,
-    includeUppercase,
-    includeNumbers,
-    includeSymbols
-    ) => {
+  //Character length
+    while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
+        confirmLength = prompt("Choose a number between 8 & 128");
+        if (confirmLength === null) {
+            break;
+        }
     }
 
-  const password = generatePassword(characterAmount, upercase, numbers, symbols)
-  passwordDisplay.innerText = password
-})
+//Character types
+    if (confirmLength) {
+        if (confirm("Would you like lowercase characters?") == true) {
+            lowerSelection = true
+        } 
 
-    const passwordCharacters = []
-  for (let i = 0; i < characterAmountNumber; i++) {
-    const characterCode = charCodes[Math.floor(Math.random()* charCodes.length)]  
-    passwordCharacters.push(string.fromCharacteoCode(charCodes))
-  }
+        if (confirm("Would you like uppercase characters?") == true) {
+            upperSelection = true
+        }
 
-let arrayFromLowToHigh = (low, high) => {
-  const array = [];
-  for (let i = low; i <= high; i++) {
-    array.push(i);
-  }
-  return array;
-};
+        if (confirm("Would you like special characters?") == true) {
+            specialSelection = true
+        }
 
-const UPPERCASE_CODES = arrayFromLowToHigh(65, 90);
-const LOWERCASE_CODES = arrayFromLowToHigh(97, 122);
-const NUMBER_CODES = arrayFromLowToHigh(48, 57);
-const SYMBOL_CODES = arrayFromLowToHigh(33, 47)
-  .concat(arrayFromLowToHigh(58, 64))
-  .concat(arrayFromLowToHigh(91, 96))
-  .concat(arrayFromLowToHigh(123, 126));
+        if (confirm("Would you like numerical characters?") == true) {
+            numberSelection = true
+        }
 
-function syncCharacterAmount(e) {
-  const value = e.target.value
-  characterAmountNumber.value = value
-  characterAmountRange.value = value
-};
+  //Alerts user
+        if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
+            alert("At least one character type must be selected!")
+        }
+    }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const characterAmount = lengthDOM.value;
-  const includeUppercase = uppercaseDOM.checked;
-  const includeNumbers = numbersDOM.checked;
-  const includeSymbols = symbolsDOM.checked;
-  const password = generatePassword(
-    characterAmount,
-    includeUppercase,
-    includeNumbers,
-    includeSymbols
-  );
-  resultDOM.innerText = password;
-});
+//Generate password
+    var characters = '';
+    characters += (lowerSelection ? lower : '');
+    characters += (upperSelection ? upper : '');
+    characters += (specialSelection ? special : '');
+    characters += (numberSelection ? numbers : '');
+
+    pwd = password(confirmLength, characters);
+
+    document.getElementById("password").innerHTML = pwd;
+
+}
+
+function password(l, characters) {
+    var pwd = '';
+    for (var i = 0; i < l; ++i) {
+        pwd += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return pwd;
+}
+
+//Copy to clipboard
+function copied() {
+    document.getElementById("password").select();
+    document.execCommand("copy");
+    alert("The password has been copied to your clipboard!");
+}
