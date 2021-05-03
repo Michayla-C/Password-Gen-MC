@@ -52,7 +52,7 @@ label {
   width: 2rem;
 }
 
-.password-display {
+.passwordDisplay {
   background-color: white;
   color: black;
   padding: 1rem;
@@ -83,6 +83,63 @@ label {
   background-color: #ffffff33;
 }
 
+/* Start Media Query */
+/* A Media Query max-width: 980px */
+@media screen and (max-width: 980px) {
+  /* Resized content to fit 980px  */
+  body {
+      max-width: 980px;
+  }   
+  /* Styles for the wrapper div */
+  #wrapper {
+      width: 100%;
+      }
+}
+  /* A Media Query max-width: 786px */
+  @media screen and (max-width: 786px) {
+  /* Resized content to fit 786px  */
+  body {
+      max-width: 786px;
+  } 
+  /* Styles for the wrapper div */
+  #wrapper {
+      width: 100%;
+      }
+/* Styles for generate button */
+#generate {
+  
+  margin-left: 10%;
+  margin-bottom: 10px;
+}
+
+/* Styles for copy button */
+
+  }
+  /* A Media Query max-width: 640px */
+  @media screen and (max-width: 640px) {
+   /* Resized content to fit 640px  */
+   body {
+      max-width: 640px;
+  } 
+  
+   #wrapper {
+      width: 100%;
+      }
+      #btn {
+          margin-top: 20px;
+      }
+      /* Styles for generate button */
+      #generate {
+          margin-left: 22%;
+          
+      }
+      /* Styles for copy button */
+      #copy {
+          margin-left: 22%;
+          
+      }
+  
+  }
 
 @media (max-width: 690px) {
   .btn {
