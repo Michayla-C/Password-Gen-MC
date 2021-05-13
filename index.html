@@ -19,21 +19,25 @@
 
           <h4 class="passwordDisplay" id="passwordDisplay">password</h4>
 
-              <form>
+              <form class="form">
+
                 <label for="amountNumber">Password Length</label>
-                <imput type="range" min="8" max="128" value="10" id="amountRange"></imput>
-                <imput type="number" min="8" max="128" id="amountNumber"></imput>
+                <div class="characterAmount">
+                  <imput type="range" min="8" max="128" value="10" id="amountRange"></imput>
+                  <imput type="number" min="8" max="128" id="amountNumber"></imput>
+                </div>
 
                 <label for="upercase">Uppercase</label>
                 <imput type="checkbox" id="upercase"></imput>
 
-                <label for="numbers">Numbers</label>
+                <label class="number" for="numbers">Numbers</label>
                 <imput type="checkbox" id="numbers"></imput>
  
                 <label for="symbols">Symbols</label>
                 <imput type="checkbox" id="symbols"></imput>
 
                 <button id="generate" class="btn" type="submit">Generate Password</button>
+              
               </form>
 
               <button id="copy" class="button" onclick="copied()"> Copy</button>
