@@ -21,6 +21,21 @@
 
               <button id="generate" class="btn" type="submit">Generate Password</button>
 
+              <form>
+                <label for="amountNumber">Password Length</label>
+                <imput type="range" min="8" max="128" value="10" id="amountRange"></imput>
+                <imput type="number" min="8" max="128" id="amountNumber"></imput>
+
+                <label for="upercase">Uppercase</label>
+                <imput type="checkbox" id="upercase"></imput>
+
+                <label for="numbers">Numbers</label>
+                <imput type="checkbox" id="numbers"></imput>
+
+                <label for="symbols">Symbols</label>
+                <imput type="checkbox" id="symbols"></imput>
+              </form>
+
               <button id="copy" class="button" onclick="copied()"> Copy</button>
 
       </div>
