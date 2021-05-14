@@ -16,19 +16,19 @@
         <div class="cardHeader">
           <h2 class="title">Generate New Random Password</h2>
         </div>
+          <br>
+          <h4 class="passwordDisplay">password</h4>
+              <br>
+              <form id="generatorForm" class="form">
 
-          <h4 class="passwordDisplay" id="passwordDisplay">password</h4>
-
-              <form class="form">
-
-                <label for="amountNumber">Password Length</label>
+                <label for="amountNumber">Length</label>
                 <div class="characterAmount">
                   <imput type="range" min="8" max="128" value="10" id="amountRange"></imput>
                   <imput type="number" min="8" max="128" id="amountNumber"></imput>
                 </div>
 
-                <label for="upercase">Uppercase</label>
-                <imput type="checkbox" id="upercase"></imput>
+                <label for="uppercase">Uppercase</label>
+                <imput type="checkbox" id="uppercase"></imput>
 
                 <label class="number" for="numbers">Numbers</label>
                 <imput type="checkbox" id="numbers"></imput>
@@ -46,7 +46,9 @@
 
       <!--OWASP Special Characters Cheat Code Page-->
       <script src="https://owasp.org/www-community/password-special-characters"></script>
-      
+      <!--ASCII Table-->
+      <script src="http://www.asciitable.com/"></script>
+
       <!--JS file link-->
     <script id="owasp" src="script.js"></script>
 
