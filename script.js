@@ -7,14 +7,34 @@ const symbolsElement = document.getElementById('symbols')
 const form = document.getElementById('generatorForm')
 const passwordDisplay = document.getElementById('passwordDisplay')
 
+// CharCode
+var res = String.fromCharCode((65, 90), (97, 122), (48, 57), (33, 47), (91, 96), (58, 64), (123, 126));
+
+const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+const alphabet = alpha.map((x) => String.fromCharCode(x));
+console.log(alphabet);
+
+var arrayFromLowToHigh =[lowercaseCharCodes, uppercaseCharCodes, numberCharCodes, symbolsCharCodes]
 const lowercaseCharCodes = arryFromLowToHigh(65, 90)
 const uppercaseCharCodes = arryFromLowToHigh(97, 122)
 const numberCharCodes = arrayFromLowToHigh(48, 57)
-const symbolsCharCodes = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64)).concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126))
+const symbolsCharCodes = arrayFromLowToHigh((33, 47), (58, 64), (91, 96), (123, 126))
+
+// If All Else Fails
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var special = '!@#$^&%*()+=-[]{}|:<>?,.';
+var numbers = '1234567890';
+
+var lowerSelection = false;
+var upperSelection = false;
+var specialSelection = false;
+var numberSelection = false;
 
 amountNumber.addEventListener('imput, syncAmount')
 amountRange.addEventListener('imput, syncAmount')
 
+//Form Type
 form.addEventListener('submit', e => {
     e.preventDefault()
     const characterAmount = amountNumber.value
@@ -25,37 +45,43 @@ form.addEventListener('submit', e => {
     passwordDisplay.innerText = password
 })
 
-function generatePassword(characterAmount, uppercase, numbers, symbols) {
-    let charCodes = lowercaseCharCodes
-    if (uppercase) charCodes = charCodes.concat(uppercaseCharCodes)
-    if (numbers) charCodes = charCodes.concat(numberCharCodes)
-    if (symbols) charCodes = charCodes.concat(symbolsCharCodes)  
-    
-    const password = []
-    for(let i = 0; i <= characterAmount; i++) {
-        const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
-        password.push(string.fromCharCode(characterCode))
+//Alert Pop-Ups
+  function generate() {
+    var confirmLength = '';
+    //Character Length
+    while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
+        confirmLength = prompt("Chose between 8 to 128 characters");
+        if (confirmLength === null) {
+            break;
+        }
     }
-    return password.join('')
-    //console.log(lowercaseCharCodes)
-}
 
-function arryFromLowToHigh(low, high) {
-    const arry = []
-    for (let i = low; i <= high; i++) {
-        arry.push(i)
-    }  
-    return arry
-}
+    //Character Types
+    if (confirmLength) {
+        if (confirm("Would you like to use lowercase characters?") == true) {
+            lowerSelection = true
+        } 
 
-function syncAmount(e) {
-    const value = e.target.value
-    amountNumber.value = value
-    amountRange.value = value
-}
+        if (confirm("Would you like to use uppercase characters?") == true) {
+            upperSelection = true
+        }
 
+        if (confirm("Would you like to use special characters?") == true) {
+            specialSelection = true
+        }
 
-var dataElement = getElementById ('owasp');
-var owasp = JSON.parse(dataElement.textContent);
+        if (confirm("Would you like to use numerical characters?") == true) {
+            numberSelection = true
+        }
 
-generateBtn.addEventListener("click", writePassword);
+    //Idiot Alert
+        if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
+            alert("At least one character type must be selected")
+        }
+    }
+    
+    var characters = '';
+    characters += (lowerSelection ? lower : '');
+    characters += (upperSelection ? upper : '');
+    characters += (specialSelection ? special : '');
+    characters += (numberSelection ? numbers : '');
