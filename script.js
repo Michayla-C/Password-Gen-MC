@@ -32,10 +32,10 @@ var generatePassword = function() {
   }
 
   //Password Characters
-  var specialConfirm = window.confirm("Do you want special chars?");
-  var numbersConfirm = window.confirm("Do you want numbers?");
-  var lowerConfirm = window.confirm("Do you want lower case alphabets?");
-  var upperConfirm = window.confirm("Do you want upper case alphabets?");
+  var specialConfirm = window.confirm("Secial Characters?");
+  var numbersConfirm = window.confirm("DNumbers?");
+  var lowerConfirm = window.confirm("Lower-case?");
+  var upperConfirm = window.confirm("Upper-case?");
   
   //If no Options Chosen
   if (!specialonfirm && !numbersConfirm && !loweronfirm && !upperConfirm)
