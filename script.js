@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//Generate password Function
+//Generate Password Function
 var generatePassword = function() {
   var special = "!@#$%^&*(){}[]=<>/,.|~?";
   var numbers ="0123456789";
