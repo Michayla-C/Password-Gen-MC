@@ -31,6 +31,13 @@ var generatePassword = function() {
   return;
   }
 
+  //Password Characters
+  var specialConfirm = window.confirm("Do you want special chars?");
+  var numbersConfirm = window.confirm("Do you want numbers?");
+  var lowerConfirm = window.confirm("Do you want lower case alphabets?");
+  var upperConfirm = window.confirm("Do you want upper case alphabets?");
+  
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
