@@ -13,7 +13,11 @@ var generatePassword = function() {
   var passwordLength = window.prompt("Password Length");
  ;
   }
-
+ //Password Length not chosen
+ if (!passwordLength) {
+  window.alert("Specify Password Length");
+  return;
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
