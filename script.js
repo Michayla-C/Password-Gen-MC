@@ -32,20 +32,20 @@ var generatePassword = function() {
   }
 
   //Password Characters
-  var specialConfirm = window.confirm("Secial Characters?");
-  var numbersConfirm = window.confirm("Numbers?");
-  var lowerConfirm = window.confirm("Lowercase?");
-  var upperConfirm = window.confirm("Uppercase?");
+  var special = window.confirm("Secial Characters?");
+  var numbers = window.confirm("Numbers?");
+  var lower = window.confirm("Lowercase?");
+  var upper = window.confirm("Uppercase?");
   
   //No Options Chosen
-  if (!specialonfirm && !numbersConfirm && !loweronfirm && !upperConfirm)
+  if (!special && !numbers && !lower && !upper)
   {
     window.alert("One condition must be chosen");
     return;
   }
 
   //Only Special Characters Chosen  
-  else if (specialConfirm && !numbersConfirm && !lowerConfirm && !upperConfirm) {     
+  else if (special && !numbers && !lower && !upper) {     
     for (var i = 0, n = specialChars.length; i < passwordLength; ++i) {
       retVal += specialChars.charAt(Math.floor(Math.random() * n));
       }
@@ -53,7 +53,7 @@ var generatePassword = function() {
     }
 
     //Only Numbers Chosen  
-    else if (!specialConfirm && numbersConfirm && !lowerConfirm && !upperConfirm) {     
+    else if (!special && numbers && !lower && !upper) {     
       for (var i = 0, n = numbers.length; i < passwordLength; ++i) {
         retVal += numbers.charAt(Math.floor(Math.random() * n));
       }
@@ -61,7 +61,7 @@ var generatePassword = function() {
     }
 
     //Only Lowercase Chosen  
-    else if (!specialConfirm && !numbersConfirm && lowerConfirm && !upperConfirm) {     
+    else if (!special && !numbers && lower && !upper) {     
       for (var i = 0, n = lowerCase.length; i < passwordLength; ++i) {
         retVal += lowerCase.charAt(Math.floor(Math.random() * n));
       }
@@ -69,7 +69,7 @@ var generatePassword = function() {
     }
     
     //Only Uppercase Chosen  
-    else if (!specialConfirm && !numbersConfirm && !lowerConfirm && upperConfirm) {     
+    else if (!special && !numbers && !lower && upper) {     
       for (var i = 0, n = upperCase.length; i < passwordLength; ++i) {
         retVal += upperCase.charAt(Math.floor(Math.random() * n));
       }
@@ -77,7 +77,7 @@ var generatePassword = function() {
     }    
 
     //Special Characters & Numbers Chosen
-    else if (specialConfirm && numbersConfirm && !lowerConfirm && !upperConfirm) {
+    else if (special && numbers && !lower && !upper) {
       totalLength = specialChars.concat(numbers);      
       for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
         retVal += totalLength.charAt(Math.floor(Math.random() * n));
@@ -86,7 +86,7 @@ var generatePassword = function() {
     }
 
      //Only Letters Chosen
-     else if (!specialConfirm && !numbersConfirm && lowerConfirm && upperConfirm){
+     else if (!special && !numbers && lower && upper){
       
       totalLength = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
       
@@ -97,7 +97,7 @@ var generatePassword = function() {
     }
 
     //Only Special Characters & Lowercase Chosen
-    else if (specialConfirm && !numbersConfirm && lowerConfirm && !upperConfirm){
+    else if (special && !numbers && lower && !upper){
       
       totalLength = "!@#$%^&*(){}[]=<>/,.|~?abcdefghijklmnopqrstuvwxyz";
       
