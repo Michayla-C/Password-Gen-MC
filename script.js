@@ -33,9 +33,9 @@ var generatePassword = function() {
 
   //Password Characters
   var specialConfirm = window.confirm("Secial Characters?");
-  var numbersConfirm = window.confirm("DNumbers?");
-  var lowerConfirm = window.confirm("Lower-case?");
-  var upperConfirm = window.confirm("Upper-case?");
+  var numbersConfirm = window.confirm("Numbers?");
+  var lowerConfirm = window.confirm("Lowercase?");
+  var upperConfirm = window.confirm("Uppercase?");
   
   //No Options Chosen
   if (!specialonfirm && !numbersConfirm && !loweronfirm && !upperConfirm)
@@ -60,7 +60,7 @@ var generatePassword = function() {
     console.log(retVal);     
     }
 
-    //if only lowercase is chosen  
+    //Only Lowercase Chosen  
     else if (!specialConfirm && !numbersConfirm && lowerConfirm && !upperConfirm) {     
       for (var i = 0, n = lowerCase.length; i < passwordLength; ++i) {
         retVal += lowerCase.charAt(Math.floor(Math.random() * n));
