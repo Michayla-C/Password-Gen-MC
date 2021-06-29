@@ -97,7 +97,7 @@ var generatePassword = function() {
     }
 
     //Only Special Characters & Lowercase Chosen
-    else if (special && !numbers && lower && !upper){
+    else if (special && !numbers && lower && !upper) {
       
       totalLength = "!@#$%^&*(){}[]=<>/,.|~?abcdefghijklmnopqrstuvwxyz";
       
@@ -105,7 +105,17 @@ var generatePassword = function() {
         retVal += totalLength.charAt(Math.floor(Math.random() * n));
       }
       console.log(retVal);
+    }
 
+    //Only Special Characters & Uppercase Chosen
+    else if (special && !numbers && !lower && upper) {
+      
+      totalLength = "!@#$%^&*(){}[]=<>/,.|~?ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      
+      for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
+        retVal += totalLength.charAt(Math.floor(Math.random() * n));
+      }
+      console.log(retVal);
     }
 
 // Write password to the #password input
