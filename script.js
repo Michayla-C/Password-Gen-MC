@@ -76,6 +76,15 @@ var generatePassword = function() {
     console.log(retVal);     
     }    
 
+    //Special Characters & Numbers Chosen
+    else if (specialConfirm && numbersConfirm && !lowerConfirm && !upperConfirm) {
+      totalLength = specialChars.concat(numbers);      
+      for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
+        retVal += totalLength.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);
+    }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
