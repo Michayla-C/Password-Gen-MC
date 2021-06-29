@@ -67,6 +67,14 @@ var generatePassword = function() {
       }
     console.log(retVal);     
     }
+    
+    //Only Uppercase Chosen  
+    else if (!specialConfirm && !numbersConfirm && !lowerConfirm && upperConfirm) {     
+      for (var i = 0, n = upperCase.length; i < passwordLength; ++i) {
+        retVal += upperCase.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);     
+    }    
 
 // Write password to the #password input
 function writePassword() {
