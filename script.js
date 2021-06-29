@@ -139,6 +139,16 @@ var generatePassword = function() {
       }
       console.log(retVal);
     }
+    //Special + Numbers & Lowercase Chosen
+    else if (special && numbers && lower && !upper) {
+      
+      totalLength = "!@#$%^&*(){}[]=<>/,.|~?0123456789abcdefghijklmnopqrstuvwxyz";
+      
+      for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
+        retVal += totalLength.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);
+    }
 
 // Write password to the #password input
 function writePassword() {
