@@ -60,6 +60,14 @@ var generatePassword = function() {
     console.log(retVal);     
     }
 
+    //if only lowercase is chosen  
+    else if (!specialConfirm && !numbersConfirm && lowerConfirm && !upperConfirm) {     
+      for (var i = 0, n = lowerCase.length; i < passwordLength; ++i) {
+        retVal += lowerCase.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);     
+    }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
