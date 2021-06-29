@@ -10,6 +10,10 @@ var generatePassword = function() {
   // Return Value
   reVal = "";
 
+  var passwordLength = window.prompt("Password Length");
+ ;
+  }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
