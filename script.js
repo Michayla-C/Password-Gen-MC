@@ -24,6 +24,13 @@ var generatePassword = function() {
     return
   }
 
+  //Password Length Greater than 128
+  if (passwordLength>128)
+  {
+    window.alert("Password must be less than 128 characters");
+  return;
+  }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
