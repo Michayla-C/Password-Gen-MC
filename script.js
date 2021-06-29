@@ -151,9 +151,9 @@ var generatePassword = function() {
     console.log(retVal);
     }
 
-    //Special + Uppercase & Lowercase Chosen
+    //Special & Letters Chosen
     else if (special && !numbers && lower && upper) {
-      
+
       totalLength = "!@#$%^&*(){}[]=<>/,.|~?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
       
       for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
@@ -161,6 +161,18 @@ var generatePassword = function() {
       }
     console.log(retVal);
     }
+
+    //Numbers & Letters Chosen
+    else if (!special && numbers && lower && upper) {
+
+      totalLength = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      
+      for (var i = 0, n = totalLength.length; i < passwordLength; ++i) {
+        retVal += totalLength.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);
+    }
+
 
 // Write password to the #password input
 function writePassword() {
