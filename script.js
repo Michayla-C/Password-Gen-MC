@@ -37,6 +37,12 @@ var generatePassword = function() {
   var lowerConfirm = window.confirm("Do you want lower case alphabets?");
   var upperConfirm = window.confirm("Do you want upper case alphabets?");
   
+  //If no Options Chosen
+  if (!specialonfirm && !numbersConfirm && !loweronfirm && !upperConfirm)
+  {
+    window.alert("One condition must be chosen");
+    return;
+  }
 
 // Write password to the #password input
 function writePassword() {
