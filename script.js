@@ -48,9 +48,17 @@ var generatePassword = function() {
   else if (specialConfirm && !numbersConfirm && !lowerConfirm && !upperConfirm) {     
     for (var i = 0, n = specialChars.length; i < passwordLength; ++i) {
       retVal += specialChars.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);     
     }
-  console.log(retVal);     
-  }
+
+    //Only Numbers Chosen  
+    else if (!specialConfirm && numbersConfirm && !lowerConfirm && !upperConfirm) {     
+      for (var i = 0, n = numbers.length; i < passwordLength; ++i) {
+        retVal += numbers.charAt(Math.floor(Math.random() * n));
+      }
+    console.log(retVal);     
+    }
 
 // Write password to the #password input
 function writePassword() {
