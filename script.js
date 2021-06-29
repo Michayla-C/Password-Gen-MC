@@ -183,7 +183,11 @@ var generatePassword = function() {
       }
     console.log(retVal);
     }
-
+    
+    //Generated Password Textarea
+    document.getElementById('password').value = retVal;
+   
+}
 
 // Write password to the #password input
 function writePassword() {
